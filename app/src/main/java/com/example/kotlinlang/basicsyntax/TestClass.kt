@@ -1,6 +1,5 @@
 package com.example.kotlinlang.basicsyntax
 
-import java.util.Arrays
 import java.util.Scanner
 
 fun main() {
@@ -109,7 +108,7 @@ fun main() {
 
     println("Addition of 5 and 4 are : ${addition(5, 4)}")
 
-    println("Multiply by hundred : ${mulByHundred(5)}")
+    println("Multiply by hundred: ${mulByHundred(5)}")
 
     addByHundred(5)
 
@@ -117,9 +116,24 @@ fun main() {
      * trailing lambda
      */
 
-    enhanceMessage("Hello lambda function: "){
+    enhanceMessage("Hello lambda function: ") {
         addition(10, 20)
     }
+
+    ageOfEmployee("Pravakar") {
+        26
+    }
+    getName {
+        "Pravakar"
+    }
+
+    getStateName {
+        "Bihar"
+    }
+}
+
+fun getStateName(function: () -> String) {
+    println("State: ${function()}")
 }
 
 //fun calculation(a: Int, b: Int): Int = a+b
@@ -129,17 +143,19 @@ val sum = { a: Int, b: Int -> a + b }
 val mul = { a: Int, b: Int -> a * b }
 
 
-fun isBoyMatured(age: Int): Boolean{
+fun isBoyMatured(age: Int): Boolean {
 
     return age >= 21
 }
 
 val addition: (Int, Int) -> Int = { a, b -> a + b }
 
-val mulByHundred: (Int) -> Int = { it * 100 }
+val mulByHundred: (Int) -> Int = {
+    it * 100
+}
 
-val addByHundred: (Int) -> Unit  = {
-    println("Multiply by hundred : ${it + 100}" )
+val addByHundred: (Int) -> Unit = {
+    println("Added by hundred: ${it + 100}")
 }
 
 /**
@@ -149,5 +165,17 @@ val addByHundred: (Int) -> Unit  = {
 fun enhanceMessage(message: String, funAsParameter: () -> Int) {
 
     println("$message ${funAsParameter()}")
+
+}
+
+fun ageOfEmployee(name: String, funAsParameter: () -> Int) {
+
+    println("$name: ${funAsParameter()}")
+
+}
+
+fun getName(funAsParameter: () -> String) {
+
+    println(funAsParameter())
 
 }
