@@ -65,12 +65,52 @@ fun main() {
      * mutableMap -> mutable
      */
 
-    val mutableMap = mutableMapOf("a" to 1, "b" to 2 , "c" to 3, "d" to 4)
+    val mutableMap = mutableMapOf("a" to 1, "b" to 2, "c" to 3, "d" to 4)
 
     mutableMap["e"] = 100
 
     println(mutableMap)
     println(mutableMap.values)
     println(mutableMap.keys)
+    println(mutableMap.size)
+
+    /**
+     * empty collection
+     */
+
+    val emptyList = emptyList<Int>()
+    val emptySet = emptySet<String>()
+    val emptyMap = emptyMap<String, String>()
+
+    /**
+     * filters in collection
+     */
+
+    val list = listOf("pravakar", "Bonds", "james", "Bonds", "james", "Bonds", "Bonds")
+
+    val filteredList = list.filter {
+        it == "james"
+    }
+    println(filteredList)
+
+    val filteredCol = list.filter {
+        it == "pravakar"
+    }
+    println(filteredCol)
+
+    val filteredColl = list.filter {
+        it == "Bonds"
+    }
+
+    val filtered = list.filter {
+        it.length > 4
+    }
+    println(filtered)
+
+    val compareList = list.filter {
+        it.startsWith(prefix = "j", ignoreCase = true) && it.endsWith('S', ignoreCase = true)
+    }
+
+    println(compareList)
 
 }
