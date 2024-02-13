@@ -1,6 +1,6 @@
 package leetcode
 
-fun main(){
+fun main() {
 
     val a: IntArray = intArrayOf(1, 3)
     val b: IntArray = intArrayOf(2)
@@ -13,12 +13,12 @@ fun main(){
 //    }
 
     val size: Int = c.size
-    if (c.size % 2 == 0){
+    if (c.size % 2 == 0) {
         val res: Double = (c[(size / 2) - 1] + c[(size / 2)]).toDouble()
-        println(res/2)
-    }else{
-        val res = c[size/ 2]
+        println(res / 2)
+    } else {
+        val res = c[size / 2]
         println(res)
-    }
 
+    }
 }
